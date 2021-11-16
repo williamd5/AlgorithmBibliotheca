@@ -61,32 +61,32 @@ class AlgorithmBibliotheca {s
             return AlgorithmBibliotheca.syncTimes(n, fn, collector)
         }
     }
+}
 
-    static Collection = class extends Array {
-        nth(n) {
-            return this[--n]
-        }
-        first() {
-            return this.nth(1);
-        }
-        second() {
-            return this.nth(2);
-        }
-        third() {
-            return this.nth(3);
-        }
-        fourth() {
-            return this.nth(4);
-        }
-        fifth() {
-            return this.nth(5);
-        }
-        penultimate() {
-            return this.nth(this.length - 1);
-        }
-        last() {
-            return this.nth(this.length);
-        }
+class Collection extends Array {
+    nth(n) {
+        return this[--n]
+    }
+    first() {
+        return this.nth(1);
+    }
+    second() {
+        return this.nth(2);
+    }
+    third() {
+        return this.nth(3);
+    }
+    fourth() {
+        return this.nth(4);
+    }
+    fifth() {
+        return this.nth(5);
+    }
+    penultimate() {
+        return this.nth(this.length - 1);
+    }
+    last() {
+        return this.nth(this.length);
     }
 }
 
