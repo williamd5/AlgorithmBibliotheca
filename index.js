@@ -1,6 +1,6 @@
 class AlgorithmBibliotheca {
     // perform async task n times
-    static async asyncTimes (n = 0, fn = new Function, collector = new AlgorithmBibliotheca.TimesCollector) {
+    static async asyncTimes (n = 0, fn = new Function, collector = new AlgorithmBibliotheca.Collection) {
         if (n <= 0) return collector;
         return new Promise((resolve, reject) => {
             async function loop () {
@@ -13,14 +13,14 @@ class AlgorithmBibliotheca {
     }
 
     // perform sync task n times
-    static syncTimes (n = 0, fn = new Function, collector = new AlgorithmBibliotheca.TimesCollector) {
+    static syncTimes (n = 0, fn = new Function, collector = new AlgorithmBibliotheca.Collection) {
         if (n <= 0) return collector;
         while(n > 0) collector.push(fn(n--));
         return collector;
     }
 
     // determine whether task is sync/async
-    static times (n = 0, fn = new Function, collector = new AlgorithmBibliotheca.TimesCollector) {
+    static times (n = 0, fn = new Function, collector = new AlgorithmBibliotheca.Collection) {
         if (n <= 0) return collector;
         if (typeof fn !== "function") {
             const staticResult = fn;
@@ -42,7 +42,7 @@ class AlgorithmBibliotheca {
         }
     }
 
-    static TimesCollector = class extends Array {
+    static Collection = class extends Array {
         nth(n) {
             return this[--n]
         }
