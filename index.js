@@ -1,6 +1,6 @@
-class LibName {
+class AlgorithmBibliotheca {
     // perform async task n times
-    static async asyncTimes (n = 0, fn = new Function, collector = new LibName.TimesCollector) {
+    static async asyncTimes (n = 0, fn = new Function, collector = new AlgorithmBibliotheca.TimesCollector) {
         if (n <= 0) return collector;
         return new Promise((resolve, reject) => {
             async function loop () {
@@ -13,14 +13,14 @@ class LibName {
     }
 
     // perform sync task n times
-    static syncTimes (n = 0, fn = new Function, collector = new LibName.TimesCollector) {
+    static syncTimes (n = 0, fn = new Function, collector = new AlgorithmBibliotheca.TimesCollector) {
         if (n <= 0) return collector;
         while(n > 0) collector.push(fn(n--));
         return collector;
     }
 
     // determine whether task is sync/async
-    static times (n = 0, fn = new Function, collector = new LibName.TimesCollector) {
+    static times (n = 0, fn = new Function, collector = new AlgorithmBibliotheca.TimesCollector) {
         if (n <= 0) return collector;
         if (typeof fn !== "function") {
             const staticResult = fn;
@@ -31,14 +31,14 @@ class LibName {
             return new Promise((resolve, reject) => {
                 async function awaitPromise() {
                     collector.push(await result);
-                    return LibName.asyncTimes(n, fn, collector)
+                    return AlgorithmBibliotheca.asyncTimes(n, fn, collector)
                 }
                 awaitPromise().then(resolve);
             })
         }
         else {
             collector.push(result);
-            return LibName.syncTimes(n, fn, collector)
+            return AlgorithmBibliotheca.syncTimes(n, fn, collector)
         }
     }
 
@@ -71,22 +71,22 @@ class LibName {
 }
 
 function once () {
-    return LibName.times(1, ...arguments);
+    return AlgorithmBibliotheca.times(1, ...arguments);
 };
 function twice () {
-    return LibName.times(2, ...arguments);
+    return AlgorithmBibliotheca.times(2, ...arguments);
 };
 function thrice () {
-    return LibName.times(3, ...arguments);
+    return AlgorithmBibliotheca.times(3, ...arguments);
 };
 
 
 Number.prototype.asyncTimes = function () {
-    return LibName.asyncTimes(this, ...arguments);
+    return AlgorithmBibliotheca.asyncTimes(this, ...arguments);
 }
 Number.prototype.syncTimes = function () {
-    return LibName.syncTimes(this, ...arguments);
+    return AlgorithmBibliotheca.syncTimes(this, ...arguments);
 }
 Number.prototype.times = function () {
-    return LibName.times(this, ...arguments);
+    return AlgorithmBibliotheca.times(this, ...arguments);
 }
