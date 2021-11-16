@@ -63,28 +63,56 @@ class AlgorithmBibliotheca {s
     }
 }
 
+/**
+ * Array extension
+ */
 class Collection extends Array {
+    /**
+     * @param  {n}  n+1th index of the array to return
+     * @return {*}  n+1th index of the array
+     */
     nth(n) {
         return this[--n]
     }
+    /**
+     * @return {*}  First element of the array
+     */
     first() {
         return this.nth(1);
     }
+    /**
+     * @return {*}  Second element of the array
+     */
     second() {
         return this.nth(2);
     }
+    /**
+     * @return {*}  Third element of the array
+     */
     third() {
         return this.nth(3);
     }
+    /**
+     * @return {*}  Fourth element of the array
+     */
     fourth() {
         return this.nth(4);
     }
+    /**
+     * @return {*}  Fifth element of the array
+     */
     fifth() {
         return this.nth(5);
     }
+    /**
+     * @return {*}  Penultimate element of the array
+     */
     penultimate() {
         return this.nth(this.length - 1);
     }
+    /**
+     * @return {*}  Last element of the array
+     */
     last() {
         return this.nth(this.length);
     }
