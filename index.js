@@ -1,4 +1,3 @@
-
 class AlgorithmBibliotheca {s
     /**
      * Perform asynchronous task n times (awaits execution before continuing iteration)
