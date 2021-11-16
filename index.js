@@ -6,7 +6,7 @@ class AlgorithmBibliotheca {s
      * @param  {Collection} collector Collection preset
      * @return {Promise} Resolves into {Collection} containing return values from the tasks in their corresponding order
      */
-    static async asyncTimes (n = 0, fn = new Function, collector = new AlgorithmBibliotheca.Collection) {
+    static async asyncTimes (n = 0, fn = new Function, collector = new Collection) {
         if (n <= 0) return collector;
         return new Promise((resolve, reject) => {
             async function loop () {
@@ -25,7 +25,7 @@ class AlgorithmBibliotheca {s
      * @param  {Collection} collector Collection preset
      * @return {Collection} Contains return values from the tasks in their corresponding order
      */
-    static syncTimes (n = 0, fn = new Function, collector = new AlgorithmBibliotheca.Collection) {
+    static syncTimes (n = 0, fn = new Function, collector = new Collection) {
         if (n <= 0) return collector;
         while(n > 0) collector.push(fn(n--));
         return collector;
@@ -39,7 +39,7 @@ class AlgorithmBibliotheca {s
      * @param  {Collection} collector Collection preset
      * @return {Promise|Collection} Resolves into or returns {Collection} containing return values from the tasks in their corresponding order
      */
-    static times (n = 0, fn = new Function, collector = new AlgorithmBibliotheca.Collection) {
+    static times (n = 0, fn = new Function, collector = new Collection) {
         if (n <= 0) return collector;
         if (typeof fn !== "function") {
             const staticResult = fn;
