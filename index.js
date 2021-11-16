@@ -70,6 +70,9 @@ class AlgorithmBibliotheca {
     }
 }
 
+// define alias
+const AB = AlgorithmBibliotheca;
+
 function once () {
     return AlgorithmBibliotheca.times(1, ...arguments);
 };
